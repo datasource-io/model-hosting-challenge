@@ -23,7 +23,7 @@ In this repository is a trained sklearn SVC model that predicts a numeric symbol
 
 The task is to host this model behind an API, which allows users to submit jpeg images (examples of which can be found in data) and have the predicted class returned.
 
-The image will have to be transformed for prediction as the model expects to take a (1, 64) vector of pixel intensities rather than RGB values. The input image of (8,8,3) will first need each pixel intensity calculated leaving an array of (8,8), that will then need to be unstacked into (1, 64). Values in the model input array should be integers that range from 0 to 16, white to black.
+The image will have to be transformed for prediction as the model expects to take a (1, 64) vector of pixel intensities rather than RGB values. The input image will first need to be scaled and each pixel intensity calculated leaving an array of (8,8), that will then need to be unstacked into (1, 64). Values in the model input array should be integers that range from 0 to 16, white to black.
 
 The following function will help you to convert between RGB and pixel intensities:
 
@@ -62,7 +62,6 @@ Along with your API code, you should write tests that show the API works as expe
 
 To take this a little further, you could
 
-- Handle input images of varying size
 - Define a dockerfile to deploy your app as a container.
 
 ## Tips & hints
